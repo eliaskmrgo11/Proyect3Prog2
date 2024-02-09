@@ -1,0 +1,30 @@
+package runner;
+
+import java.io.File;
+
+import controller.Control;
+
+public class Run {
+    public static void main(String[] args) throws Exception {
+        // Control control = new Control();
+        // control.init();
+        String rutaCarpeta = "D:\\Desktop\\UPTC";
+
+        File carpeta = new File(rutaCarpeta);
+
+        if (carpeta.exists() && carpeta.isDirectory()) {
+
+            File[] archivos = carpeta.listFiles();
+
+            if (archivos != null) {
+                for (File archivo : archivos) {
+                    System.out.println(archivo.getName());
+                }
+            } else {
+                System.out.println("La carpeta está vacía.");
+            }
+        } else {
+            System.out.println("La carpeta no existe o no es una carpeta válida.");
+        }
+    }
+}
